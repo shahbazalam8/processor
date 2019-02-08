@@ -7,7 +7,6 @@ from sqlalchemy import create_engine
 ppsetup = pprint.PrettyPrinter(indent=4)
 pp = ppsetup.pprint
 class SymdevParse():
-    var1 = "always constant"
     def new_prog(self,filex):
         # filex = 'symdev1918'
         filename = filex + '.xml'
@@ -83,4 +82,4 @@ class SymdevParse():
         fillsymid=df.fillna(value=manipulating_values)
         engine = create_engine('mysql://root:password@localhost/mysql')
         with engine.connect() as conn, conn.begin():
-            fillsymid.to_sql('symdev', conn, if_exists='append', index=False)
+            fillsymid.to_sql('symdev_test', conn, if_exists='append', index=False)
